@@ -1,0 +1,46 @@
+﻿@page
+@model ManageLibraryModel
+@{
+    ViewData["Title"] = "Manage Library";
+}
+
+<h1>Manage Library</h1>
+
+<!-- Add Book Form -->
+<h2>Add Book</h2>
+<form method="post" asp-page-handler="OnPostAddBook">
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="Book.BookName" asp-for="Book.BookName" required />
+    </div>
+    <div>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="Book.Author" asp-for="Book.Author" required />
+    </div>
+    <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="Book.Genre" asp-for="Book.Genre" required />
+    </div>
+    <button type="submit">Add Book</button>
+</form>
+
+
+<!-- Add Subscriber Form -->
+<h2>Add Subscriber</h2>
+<form method="post" asp-page-handler="OnPostAddSubscriber">
+    <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="Subscriber.FirstName" asp-for="Subscriber.FirstName" required />
+    </div>
+    <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="Subscriber.LastName" asp-for="Subscriber.LastName" required />
+    </div>
+    <button type="submit">Add Subscriber</button>
+</form>
+
+<!-- Display success message if applicable -->
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}

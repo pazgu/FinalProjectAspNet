@@ -1,0 +1,48 @@
+﻿@page
+@model DisplayInformationModel
+@{
+    ViewData["Title"] = "Display Information";
+}
+
+<h1>Display Information</h1>
+
+<h2>Display Subscriber Information</h2>
+<form method="get">
+    <div>
+        <label for="subscriberId">Subscriber ID:</label>
+        <input type="text" id="subscriberId" name="SubscriberId" required />
+    </div>
+    <button type="submit">Display Subscriber</button>
+</form>
+
+<hr />
+
+<h2>Display Book Information</h2>
+<form method="get">
+    <div>
+        <label for="bookId">Book ID:</label>
+        <input type="text" id="bookId" name="BookId" required />
+    </div>
+    <button type="submit">Display Book</button>
+</form>
+
+<hr />
+
+<h2>Display Genre Information</h2>
+<form method="get">
+    <div>
+        <label for="genreName">Genre:</label>
+        <input type="text" id="genreName" name="GenreName" required />
+    </div>
+    <button type="submit">Display Genre</button>
+</form>
+
+<hr />
+
+@if (!string.IsNullOrEmpty(Model.Information))
+{
+    <div>
+        <h3>Information:</h3>
+        <p>@Model.Information</p>
+    </div>
+}
